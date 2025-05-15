@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LLMs Seminar - Attendance</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+        .active {
+            color: green;
+            font-weight: bold;
+        }
+        .inactive {
+            color: red;
+        }
+        .btn {
+            padding: 5px 10px;
+            text-decoration: none;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>LLMs Seminar - Attendance</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Student Name</th>
+                <th>Status</th>
+                <th>Access Link</th>
+            </tr>
+        </thead>
+        <tbody id="studentTable">
+            <!-- Students will be dynamically loaded here -->
+        </tbody>
+    </table>
+
+    <script>
+        const students = ["Alice", "Bob", "Charlie", "David", "Eva"];
+
+        function loadTable() {
+            const table = document.getElementById("studentTable");
+            table.innerHTML = "";
+
+            students.forEach(name => {
+                const status = localStorage.getItem(`student_${name}`) === "active" ? "Active" : "Inactive";
+                const statusClass = status === "Active" ? "active" : "inactive";
+
+                const row = `<tr>
+                    <td>${name}</td>
+                    <td class="${statusClass}">${status}</td>
+                    <td><a href="${name}.html" class="btn">Visit Page</a></td>
+                </tr>`;
+
+                table.innerHTML += row;
+            });
+        }
+
+        // Refresh every 5 seconds to reflect activity
+        setInterval(loadTable, 5000);
+        loadTable();
+    </script>
+</body>
+</html>
