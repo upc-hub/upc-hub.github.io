@@ -63,11 +63,12 @@
     </style>
 </head>
 <body>
+
     <header>
         <h1>Welcome, Alice!</h1>
     </header>
 
-    <section>
+    <section id="content" style="display:none;">
         <h2>Seminar Topics</h2>
         <div class="card-container">
             <div class="card">
@@ -99,7 +100,32 @@
 
     <script>
         const studentName = "Alice";
-        localStorage.setItem(`student_${studentName}`, "active");
+        const password = "alice123"; // Set Alice's password here
+
+        function authenticate() {
+            const stored = localStorage.getItem(`authenticated_${studentName}`);
+            if (stored === "true") {
+                showContent();
+                return;
+            }
+
+            const input = prompt("Enter your password:");
+            if (input === password) {
+                localStorage.setItem(`authenticated_${studentName}`, "true");
+                showContent();
+            } else {
+                alert("Incorrect password. Access denied.");
+                window.location.href = "/"; // Redirect to homepage or another safe page
+            }
+        }
+
+        function showContent() {
+            document.getElementById("content").style.display = "block";
+            localStorage.setItem(`student_${studentName}`, "active");
+        }
+
+        authenticate();
     </script>
+
 </body>
 </html>
