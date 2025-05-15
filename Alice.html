@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome - Student Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .section {
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+        a {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 12px;
+            text-decoration: none;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="welcome"></h1>
+
+    <div class="section">
+        <h2>Part 1: Introduction to NLP</h2>
+        <a href="https://colab.research.google.com/your_notebook_1.ipynb" target="_blank">Open Notebook</a>
+    </div>
+
+    <div class="section">
+        <h2>Part 2: Tokenization & Embeddings</h2>
+        <a href="https://colab.research.google.com/your_notebook_2.ipynb" target="_blank">Open Notebook</a>
+    </div>
+
+    <div class="section">
+        <h2>Part 3: Fine-Tuning LLMs</h2>
+        <a href="https://colab.research.google.com/your_notebook_3.ipynb" target="_blank">Open Notebook</a>
+    </div>
+
+    <div class="section">
+        <h2>Part 4: Retrieval-Augmented Generation (RAG)</h2>
+        <a href="https://colab.research.google.com/your_notebook_4.ipynb" target="_blank">Open Notebook</a>
+    </div>
+
+    <div class="section">
+        <h2>Part 5: Knowledge Graph + LLM</h2>
+        <a href="https://colab.research.google.com/your_notebook_5.ipynb" target="_blank">Open Notebook</a>
+    </div>
+
+    <script>
+        // Extract student name from the file name (e.g., Alice.html)
+        const filename = window.location.pathname.split("/").pop();
+        const studentName = filename.replace(".html", "");
+
+        // Display welcome message
+        document.getElementById("welcome").innerText = `Welcome, ${studentName}!`;
+
+        // Mark as active in localStorage
+        localStorage.setItem(`student_${studentName}`, "active");
+    </script>
+</body>
+</html>
