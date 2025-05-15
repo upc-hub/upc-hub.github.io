@@ -2,11 +2,63 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>My Portfolio</title>
+    <title>Asahi Laboratory - Hands-on Seminar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        h1 {
+            font-size: 2.5em;
+            color: #333;
+        }
+        p {
+            font-size: 1.2em;
+            color: #555;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .btn {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 24px;
+            text-decoration: none;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 1em;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #45a049;
+        }
+        .lab-link {
+            margin-top: 15px;
+            font-size: 0.95em;
+        }
+        .lab-link a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+        .lab-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome to My Portfolio!</h1>
-    <p>This is hosted for free using GitHub Pages.</p>
-    <a href="/nlp_seminar/">🎓 Seminar Attendance Page</a>
+    <h1>Asahi Laboratory - Hands-on Seminar</h1>
+    <p>This is the main page for the hands-on seminar arranged by the Asahi Laboratory at Nagoya University.</p>
+    <a href="/nlp_seminar/" class="btn">🎓 Go to NLP Seminar</a>
+    <div class="lab-link">
+        <p>Visit the <a href="https://a-lab.material.nagoya-u.ac.jp/en/" target="_blank">Asahi Laboratory Main Website</a></p>
+    </div>
 </body>
 </html>
