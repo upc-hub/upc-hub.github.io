@@ -57,9 +57,9 @@
     </div>
 
     <script>
-        // Extract student name from the file name (e.g., Alice.html)
-        const filename = window.location.pathname.split("/").pop();
-        const studentName = filename.replace(".html", "");
+        // Extract student name from folder name (clean URL support)
+        const pathParts = window.location.pathname.split("/");
+        const studentName = pathParts[pathParts.length - 2] || "Student";
 
         // Display welcome message
         document.getElementById("welcome").innerText = `Welcome, ${studentName}!`;
