@@ -173,13 +173,15 @@
   <script>
     const students = ["Sato", "Horita", "Genozono", "Yoshimochi", "Shibusawa", "Hirano", "Lynn", "Soe"];
 
-    function loadTable() {
+    function loadTableRealtime() {
         const table = document.getElementById("studentTable");
         table.innerHTML = "";
 
-        students.forEach(name => {
-            db.collection("student_status").doc(name).get().then(doc => {
-                const data = doc.data();
+        db.collection("student_status").onSnapshot(snapshot => {
+            table.innerHTML = "";  // Clear table before updating
+            students.forEach(name => {
+                const doc = snapshot.docs.find(d => d.id === name);
+                const data = doc ? doc.data() : null;
                 const status = data && data.status ? data.status : "inactive";
                 const statusClass = status === "active" ? "active" : "inactive";
 
@@ -193,9 +195,8 @@
         });
     }
 
-    // Refresh every 5 seconds to reflect activity status
-    setInterval(loadTable, 5000);
-    loadTable();
-  </script>
+    loadTableRealtime();  // Initialize real-time table loading
+</script>
+
 </body>
 </html>
