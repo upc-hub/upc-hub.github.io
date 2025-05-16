@@ -98,6 +98,24 @@
             margin: 10px 0;
         }
     </style>
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+
+    <script>
+    const firebaseConfig = {
+        apiKey: "AIzaSyCGTsZncPetIHiC_MnoNiflaen-LSaVsuc",
+        authDomain: "nlp-seminar-c8c63.firebaseapp.com",
+        projectId: "nlp-seminar-c8c63",
+        storageBucket: "nlp-seminar-c8c63.appspot.com",
+        messagingSenderId: "348634037467",
+        appId: "1:348634037467:web:659d7eb753f1e045a7a0fe"
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+    </script>
 </head>
 <body>
 
