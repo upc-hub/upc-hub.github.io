@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome - Lynn</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
@@ -32,7 +33,8 @@
             background: white;
             border: 1px solid #ccc;
             border-radius: 10px;
-            width: 300px;
+            width: 90%;
+            max-width: 300px;
             text-align: center;
             padding: 20px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -97,7 +99,36 @@
             font-size: 1em;
             margin: 10px 0;
         }
+        @media (min-width: 600px) {
+            .card {
+                width: 45%;
+            }
+        }
+
+        @media (min-width: 900px) {
+            .card {
+                width: 300px;
+            }
+        }
     </style>
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+
+    <script>
+    const firebaseConfig = {
+        apiKey: "AIzaSyCGTsZncPetIHiC_MnoNiflaen-LSaVsuc",
+        authDomain: "nlp-seminar-c8c63.firebaseapp.com",
+        projectId: "nlp-seminar-c8c63",
+        storageBucket: "nlp-seminar-c8c63.appspot.com",
+        messagingSenderId: "348634037467",
+        appId: "1:348634037467:web:659d7eb753f1e045a7a0fe"
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+    </script>
 </head>
 <body>
 
@@ -151,7 +182,7 @@
 
     <script>
         const studentName = "Lynn";
-        const password = "lynn123"; // Hardcoded password for Lynn
+        const password = "Lynn123"; // Hardcoded password for Lynn
 
         function checkPassword() {
             const input = document.getElementById("passwordInput").value;
@@ -174,6 +205,26 @@
                 localStorage.setItem(`student_${studentName}`, "active");
             }
         };
+
+        db.collection("student_status").doc(studentName).set({
+            status: "active",
+            lastVisited: new Date().toISOString()
+        }, { merge: true });
+
+        // Mark as inactive when the page is closed or refreshed
+        window.addEventListener("beforeunload", function () {
+            const url = `https://firestore.googleapis.com/v1/projects/nlp-seminar-c8c63/databases/(default)/documents/student_status/${studentName}?updateMask.fieldPaths=status&updateMask.fieldPaths=lastVisited`;
+
+            const data = JSON.stringify({
+                fields: {
+                    status: { stringValue: "inactive" },
+                    lastVisited: { stringValue: new Date().toISOString() }
+                }
+            });
+
+            navigator.sendBeacon(url, data);
+        });
+
     </script>
 
 </body>
