@@ -199,11 +199,16 @@
         }, { merge: true });
 
         // Mark as inactive when the page is closed or refreshed
-        window.addEventListener("beforeunload", function () {
-            db.collection("student_status").doc(studentName).set({
-                status: "inactive",
-                lastVisited: new Date().toISOString()
-            }, { merge: true });
+        window.addEventListener("beforeunload", function (e) {
+            navigator.sendBeacon(
+                `https://firestore.googleapis.com/v1/projects/nlp-seminar-c8c63/databases/(default)/documents/student_status/${studentName}?updateMask.fieldPaths=status&updateMask.fieldPaths=lastVisited`,
+                JSON.stringify({
+                    fields: {
+                        status: { stringValue: "inactive" },
+                        lastVisited: { stringValue: new Date().toISOString() }
+                    }
+                })
+            );
         });
 
     </script>
