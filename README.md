@@ -2,6 +2,7 @@
 
 Welcome to the **Hands-on Seminar Series** organized by the Asahi Laboratory at Nagoya University.  
 This site provides easy access to interactive seminar materials, including Colab notebooks and personalized student pages.
+- 👉 [Seminar Main Page](https://upc-hub.github.io/)  
 
 ---
 
