@@ -1,4 +1,4 @@
-# 📚 Asahi Laboratory - NLP & GNN Seminars
+# 📚 Asahi Laboratory - GNN & NLP Seminars
 
 Welcome to the **Hands-on Seminar Series** organized by the Asahi Laboratory at Nagoya University.  
 This site provides easy access to interactive seminar materials, including Colab notebooks and personalized student pages.
@@ -7,6 +7,13 @@ This site provides easy access to interactive seminar materials, including Colab
 
 ## 📖 **Current Seminar Topics**
 
+### 📚 **GNN Hands-on Seminar (Coming Soon...)**
+
+The GNN seminar materials are currently being prepared.  
+Stay tuned for exciting content on Graph Neural Networks and their real-world applications!  
+
+---
+
 ### 📝 **NLP Hands-on Seminar**
 
 - ✅ [Part 1: Introduction to NLP](https://colab.research.google.com/github/upc-hub/upc-hub.github.io/blob/main/nlp_seminar/part1.ipynb)  
@@ -14,13 +21,6 @@ This site provides easy access to interactive seminar materials, including Colab
 - ✅ [Part 3: Fine-Tuning LLMs](https://colab.research.google.com/github/upc-hub/upc-hub.github.io/blob/main/nlp_seminar/part3.ipynb)  
 - ✅ [Part 4: Retrieval-Augmented Generation (RAG)](https://colab.research.google.com/github/upc-hub/upc-hub.github.io/blob/main/nlp_seminar/part4.ipynb)  
 - ✅ [Part 5: Knowledge Graph + LLM](https://colab.research.google.com/github/upc-hub/upc-hub.github.io/blob/main/nlp_seminar/part5.ipynb)  
-
----
-
-### 📚 **GNN Hands-on Seminar (Coming Soon...)**
-
-The GNN seminar materials are currently being prepared.  
-Stay tuned for exciting content on Graph Neural Networks and their real-world applications!  
 
 ---
 
