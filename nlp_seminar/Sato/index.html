@@ -99,6 +99,7 @@
         }
     </style>
     <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
 
@@ -192,6 +193,47 @@
                 localStorage.setItem(`student_${studentName}`, "active");
             }
         };
+
+        // Initialize Database
+        const rtdb = firebase.database();
+
+        // Reference for presence status
+        const userStatusDatabaseRef = rtdb.ref(`/status/${studentName}`);
+
+        // Firestore reference for syncing
+        const userStatusFirestoreRef = db.collection("student_status").doc(studentName);
+
+        const isOfflineForDatabase = {
+            state: "offline",
+            last_changed: firebase.database.ServerValue.TIMESTAMP,
+        };
+
+        const isOnlineForDatabase = {
+            state: "online",
+            last_changed: firebase.database.ServerValue.TIMESTAMP,
+        };
+
+        const isOfflineForFirestore = {
+            status: "inactive",
+            lastVisited: new Date().toISOString(),
+        };
+
+        const isOnlineForFirestore = {
+            status: "active",
+            lastVisited: new Date().toISOString(),
+        };
+
+        // Monitor connection state
+        rtdb.ref(".info/connected").on("value", function(snapshot) {
+            if (snapshot.val() === false) {
+                return;
+            }
+
+            userStatusDatabaseRef.onDisconnect().set(isOfflineForDatabase).then(function() {
+                userStatusDatabaseRef.set(isOnlineForDatabase);
+                userStatusFirestoreRef.set(isOnlineForFirestore, { merge: true });
+            });
+        });
 
         db.collection("student_status").doc(studentName).set({
             status: "active",
