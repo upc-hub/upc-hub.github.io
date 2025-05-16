@@ -197,6 +197,15 @@
             status: "active",
             lastVisited: new Date().toISOString()
         }, { merge: true });
+
+        // Mark as inactive when the page is closed or refreshed
+        window.addEventListener("beforeunload", function () {
+            db.collection("student_status").doc(studentName).set({
+                status: "inactive",
+                lastVisited: new Date().toISOString()
+            }, { merge: true });
+        });
+
     </script>
 
 </body>
