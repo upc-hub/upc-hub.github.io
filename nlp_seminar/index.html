@@ -96,7 +96,6 @@
     }
   </style>
   <!-- Firebase SDKs -->
-  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
 
@@ -159,6 +158,7 @@
           <tr>
             <th>Name</th>
             <th>Status</th>
+            <th>Last Visited</th>
             <th>Access Link</th>
           </tr>
         </thead>
@@ -179,24 +179,33 @@
         table.innerHTML = "";
 
         db.collection("student_status").onSnapshot(snapshot => {
-            table.innerHTML = "";  // Clear table before updating
+            const statusData = [];
+
             students.forEach(name => {
                 const doc = snapshot.docs.find(d => d.id === name);
                 const data = doc ? doc.data() : null;
                 const status = data && data.status ? data.status : "inactive";
-                const statusClass = status === "active" ? "active" : "inactive";
+                const lastVisited = data && data.lastVisited ? new Date(data.lastVisited).toLocaleString() : "-";
+                statusData.push({ name, status, lastVisited });
+            });
 
-                const row = `<tr>
+            // Sort by status: active first, then inactive
+            statusData.sort((a, b) => (a.status === "active" ? -1 : 1));
+
+            table.innerHTML = statusData.map(({ name, status, lastVisited }) => {
+                const statusClass = status === "active" ? "active" : "inactive";
+                const statusIcon = status === "active" ? "🟢" : "🔴";
+                return `<tr>
                     <td>${name}</td>
-                    <td class="${statusClass}">${status}</td>
+                    <td class="${statusClass}">${statusIcon} ${status}</td>
+                    <td>${lastVisited}</td>
                     <td><a href="./${name}/" class="btn">Visit Page</a></td>
                 </tr>`;
-                table.innerHTML += row;
-            });
+            }).join("");
         });
     }
 
-    loadTableRealtime();  // Initialize real-time table loading
+    loadTableRealtime();
 </script>
 
 </body>
