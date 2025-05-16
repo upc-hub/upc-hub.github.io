@@ -193,11 +193,12 @@
             statusData.sort((a, b) => (a.status === "active" ? -1 : 1));
 
             table.innerHTML = statusData.map(({ name, status, lastVisited }) => {
-                const statusClass = status === "active" ? "active" : "inactive";
+                //const statusClass = status === "active" ? "active" : "inactive";
+                //<td class="${statusClass}">${statusIcon} ${status}</td>
                 const statusIcon = status === "active" ? "🟢" : "🔴";
                 return `<tr>
                     <td>${name}</td>
-                    <td class="${statusClass}">${statusIcon} ${status}</td>
+                    <td style="font-size: 1.5em;">${statusIcon}</td>
                     <td>${lastVisited}</td>
                     <td><a href="./${name}/" class="btn">Visit Page</a></td>
                 </tr>`;
