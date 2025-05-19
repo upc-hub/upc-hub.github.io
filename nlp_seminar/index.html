@@ -308,7 +308,22 @@
           loadTableRealtime(); // Refresh table labels
       }
 
-      const students = ["Sato", "Horita", "Genozono", "Yoshimochi", "Shibusawa", "Hirano", "Lynn", "Soe", "Kimura", "Asahi", "Alex", "Amgad", "Hein"];
+      const students = [
+          { username: "Sato", en: "Koki Sato", jp: "佐藤　昂輝" },
+          { username: "Horita", en: "Takuya Horita", jp: "堀田　拓弥" },
+          { username: "Genozono", en: "Kosei Genozono", jp: "現王園　洸誠" },
+          { username: "Yoshimochi", en: "Koki Yoshimochi", jp: "吉持　幸毅" },
+          { username: "Shibusawa", en: "Subaru Shibusawa", jp: "澁澤　昴" },
+          { username: "Hirano", en: "Manae Hirano", jp: "平野　学惠" },
+          { username: "Lynn", en: "Lynn", jp: "リン" },
+          { username: "Soe", en: "Soe", jp: "ソエ" },
+          { username: "Kimura", en: "Haruka Kimura", jp: "木村　晴香" },
+          { username: "Asahi", en: "Ryoji Asahi", jp: "旭　良司" },
+          { username: "Alex", en: "KUTANA Alexander", jp: "アレックス" },
+          { username: "Amgad", en: "Amgad Ahmed Ali Ibrahim", jp: "アムガッド" },
+          { username: "Hein", en: "Hein Htet", jp: "ヘイン テット" }
+      ];
+
       const firebaseConfig = {
           apiKey: "AIzaSyCGTsZncPetIHiC_MnoNiflaen-LSaVsuc",
           authDomain: "nlp-seminar-c8c63.firebaseapp.com",
@@ -321,35 +336,37 @@
       const db = firebase.firestore();
 
       function loadTableRealtime() {
-          const table = document.getElementById("studentTable");
-          table.innerHTML = "";
+        const table = document.getElementById("studentTable");
+        table.innerHTML = "";
 
-          db.collection("student_status").onSnapshot(snapshot => {
-              const statusData = [];
+        db.collection("student_status").onSnapshot(snapshot => {
+            const statusData = [];
 
-              students.forEach(name => {
-                  const doc = snapshot.docs.find(d => d.id === name);
-                  const data = doc ? doc.data() : null;
-                  const status = data && data.status ? data.status : "inactive";
-                  const lastVisited = data && data.lastVisited ? new Date(data.lastVisited).toLocaleString() : "-";
-                  statusData.push({ name, status, lastVisited });
-              });
+            students.forEach(({ username, en, jp }) => {
+                const doc = snapshot.docs.find(d => d.id === username);
+                const data = doc ? doc.data() : null;
+                const status = data && data.status ? data.status : "inactive";
+                const lastVisited = data && data.lastVisited ? new Date(data.lastVisited).toLocaleString() : "-";
+                statusData.push({ username, en, jp, status, lastVisited });
+            });
 
-              statusData.sort((a, b) => (a.status === "active" ? -1 : 1));
+            statusData.sort((a, b) => (a.status === "active" ? -1 : 1));
 
-              const visitLabel = currentLanguage === 'jp' ? 'ページを見る' : 'Visit Page';
+            const visitLabel = currentLanguage === 'jp' ? 'ページを見る' : 'Visit Page';
 
-              table.innerHTML = statusData.map(({ name, status, lastVisited }) => {
-                  const statusIcon = status === "active" ? "🟢" : "🔴";
-                  return `<tr>
-                      <td>${name}</td>
-                      <td style="font-size: 1.5em;">${statusIcon}</td>
-                      <td>${lastVisited}</td>
-                      <td><a href="./${name}/" class="btn">${visitLabel}</a></td>
-                  </tr>`;
-              }).join("");
-          });
-      }
+            table.innerHTML = statusData.map(({ username, en, jp, status, lastVisited }) => {
+                const displayName = currentLanguage === 'jp' ? jp : en;
+                const statusIcon = status === "active" ? "🟢" : "🔴";
+
+                return `<tr>
+                    <td>${displayName}</td>
+                    <td style="font-size: 1.5em;">${statusIcon}</td>
+                    <td>${lastVisited}</td>
+                    <td><a href="./${username}/" class="btn">${visitLabel}</a></td>
+                </tr>`;
+            }).join("");
+        });
+    }
 
       loadTableRealtime();
   </script>
