@@ -176,27 +176,27 @@
             <div class="card">
                 <h3>Part 1: Introduction to NLP</h3>
                 <a id="btn-part1" href="https://colab.research.google.com/github/upc-hub/upc-hub.github.io/blob/main/nlp_seminar/part1.ipynb" target="_blank" class="btn btn-course">📖 Course Notebook</a>
-                <a href="https://colab.research.google.com/github/upc-hub/upc-hub.github.io/blob/main/nlp_seminar/Hein/part1_test.ipynb" target="_blank" class="btn btn-testing">📝 Testing Notebook</a>
+                <a id="btn-test-part1" href="https://colab.research.google.com/github/upc-hub/upc-hub.github.io/blob/main/nlp_seminar/Hein/part1_test.ipynb" target="_blank" class="btn btn-testing">📝 Testing Notebook</a>
             </div>
             <div class="card">
                 <h3>Part 2: Tokenization & Embeddings</h3>
                 <a id="btn-part2" href="https://colab.research.google.com/github/upc-hub/upc-hub.github.io/blob/main/nlp_seminar/part2.ipynb" target="_blank" class="btn btn-course">📖 Course Notebook</a>
-                <a href="https://colab.research.google.com/github/upc-hub/upc-hub.github.io/blob/main/nlp_seminar/Hein/part2_test.ipynb" target="_blank" class="btn btn-testing">📝 Testing Notebook</a>
+                <a id="btn-test-part2" href="https://colab.research.google.com/github/upc-hub/upc-hub.github.io/blob/main/nlp_seminar/Hein/part2_test.ipynb" target="_blank" class="btn btn-testing">📝 Testing Notebook</a>
             </div>
             <div class="card">
                 <h3>Part 3: Fine-Tuning LLMs</h3>
                 <a id="btn-part3" href="https://colab.research.google.com/github/upc-hub/upc-hub.github.io/blob/main/nlp_seminar/part3.ipynb" target="_blank" class="btn btn-course">📖 Course Notebook</a>
-                <a href="https://colab.research.google.com/github/upc-hub/upc-hub.github.io/blob/main/nlp_seminar/Hein/part3_test.ipynb" target="_blank" class="btn btn-testing">📝 Testing Notebook</a>
+                <a id="btn-test-part3" href="https://colab.research.google.com/github/upc-hub/upc-hub.github.io/blob/main/nlp_seminar/Hein/part3_test.ipynb" target="_blank" class="btn btn-testing">📝 Testing Notebook</a>
             </div>
             <div class="card">
                 <h3>Part 4: Retrieval-Augmented Generation (RAG)</h3>
                 <a id="btn-part4" href="https://colab.research.google.com/github/upc-hub/upc-hub.github.io/blob/main/nlp_seminar/part4.ipynb" target="_blank" class="btn btn-course">📖 Course Notebook</a>
-                <a href="https://colab.research.google.com/github/upc-hub/upc-hub.github.io/blob/main/nlp_seminar/Hein/part4_test.ipynb" target="_blank" class="btn btn-testing">📝 Testing Notebook</a>
+                <a id="btn-test-part4" href="https://colab.research.google.com/github/upc-hub/upc-hub.github.io/blob/main/nlp_seminar/Hein/part4_test.ipynb" target="_blank" class="btn btn-testing">📝 Testing Notebook</a>
             </div>
             <div class="card">
                 <h3>Part 5: Knowledge Graph + LLM</h3>
                 <a id="btn-part5" href="https://colab.research.google.com/github/upc-hub/upc-hub.github.io/blob/main/nlp_seminar/part5.ipynb" target="_blank" class="btn btn-course">📖 Course Notebook</a>
-                <a href="https://colab.research.google.com/github/upc-hub/upc-hub.github.io/blob/main/nlp_seminar/Hein/part5_test.ipynb" target="_blank" class="btn btn-testing">📝 Testing Notebook</a>
+                <a id="btn-test-part5" href="https://colab.research.google.com/github/upc-hub/upc-hub.github.io/blob/main/nlp_seminar/Hein/part5_test.ipynb" target="_blank" class="btn btn-testing">📝 Testing Notebook</a>
             </div>
         </div>
     </section>
@@ -215,11 +215,13 @@
             document.getElementById('topics-title').innerText = 'セミナートピック';
             for (let i = 1; i <= 5; i++) {
                 document.getElementById(`btn-part${i}`).innerText = '📖 コースノートブック';
+                document.getElementById(`btn-test-part${i}`).innerText = '📝 テストノートブック';
             }
             } else {
             document.getElementById('topics-title').innerText = 'NLP-Seminar Topics';
             for (let i = 1; i <= 5; i++) {
                 document.getElementById(`btn-part${i}`).innerText = '📖 Course Notebook';
+                document.getElementById(`btn-test-part${i}`).innerText = '📝 Testing Notebook';
             }
             }
         }
