@@ -133,10 +133,23 @@
         flex-direction: column;
       }
     }
+    .social-icons a {
+      text-decoration: none;
+      font-size: 1.5em;
+      margin: 0 8px;
+      color: white;
+      transition: transform 0.2s ease;
+    }
+
+    .social-icons a:hover {
+      transform: scale(1.2);
+      color: #FFD700; /* Gold on hover for nice effect */
+    }
   </style>
   <!-- Firebase SDKs -->
   <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
   <header>
@@ -146,7 +159,17 @@
           alt="Instructor Photo" 
           class="instructor-photo">
       <strong>Hein Htet</strong>
-      <span>(Assistant Professor)</span>
+      <div class="social-icons">
+        <a href="https://www.linkedin.com/in/hein-htet/" target="_blank" title="LinkedIn">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="https://github.com/hein-htet" target="_blank" title="GitHub">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="https://researchmap.jp/hein-htet" target="_blank" title="ResearchMap">
+          <i class="fas fa-book"></i>
+        </a>
+      </div>
     </div>
   </header>
   <main>
