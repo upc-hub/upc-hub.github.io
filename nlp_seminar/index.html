@@ -191,7 +191,7 @@
         <a href="https://github.com/upc-hub" target="_blank" title="GitHub">
           <i class="fab fa-github"></i>
         </a>
-        <a href="https://profs.provost.nagoya-u.ac.jp/html/100013690_ja.html" target="_blank" title="ResearchMap">
+        <a id="researchmap-link" href="https://profs.provost.nagoya-u.ac.jp/html/100013690_en.html" target="_blank" title="ResearchMap">
           <i class="fas fa-book"></i>
         </a>
       </div>
@@ -263,12 +263,14 @@
         document.getElementById('about-content').innerText = 'この実践的なセミナーでは、名古屋大学の朝日研究室が主催し、大規模言語モデル（LLM）を用いた自然言語処理（NLP）の基礎と応用を紹介します。';
         document.getElementById('topics-title').innerText = 'カバーされるトピック';
         document.getElementById('attendance-title').innerText = '出席者リスト';
+        researchMapLink.href = "https://profs.provost.nagoya-u.ac.jp/html/100013690_ja.html";
       } else {
         document.getElementById('seminar-title').innerText = 'Asahi Laboratory - NLP Seminar';
         document.getElementById('about-title').innerText = 'About the Seminar';
         document.getElementById('about-content').innerText = 'This hands-on seminar, organized by the Asahi Laboratory at Nagoya University, introduces students to the fundamentals and applications of Natural Language Processing (NLP) using Large Language Models (LLMs).';
         document.getElementById('topics-title').innerText = 'Topics Covered';
         document.getElementById('attendance-title').innerText = 'Attendance';
+        researchMapLink.href = "https://profs.provost.nagoya-u.ac.jp/html/100013690_en.html";
       }
     }
 
