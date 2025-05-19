@@ -174,7 +174,7 @@
 </head>
 <body>
   <header>
-    <h1>Asahi Laboratory - NLP Seminar</h1>
+    <h1 id="seminar-title">Asahi Laboratory - NLP Seminar</h1>
     <div class="language-toggle">
       <button onclick="setLanguage('en')" id="btn-en" class="active">EN</button>
       <button onclick="setLanguage('jp')" id="btn-jp">JP</button>
@@ -199,8 +199,8 @@
   </header>
   <main>
     <section>
-      <h2>About the Seminar</h2>
-      <p>This hands-on seminar, organized by the Asahi Laboratory at Nagoya University, introduces students to the fundamentals and applications of Natural Language Processing (NLP) using Large Language Models (LLMs). Participants will engage with interactive notebooks and real-world datasets to explore various NLP tasks.</p>
+      <h2 id="about-title">About the Seminar</h2>
+      <p id="about-content">This hands-on seminar, organized by the Asahi Laboratory at Nagoya University, introduces students to the fundamentals and applications of Natural Language Processing (NLP) using Large Language Models (LLMs).</p>
     </section>
 
     <section>
@@ -271,7 +271,7 @@
         document.getElementById('attendance-title').innerText = 'Attendance';
       }
     }
-    
+
     const students = ["Sato", "Horita", "Genozono", "Yoshimochi", "Shibusawa", "Hirano", "Lynn", "Soe", "Kimura", "Asahi", "Alex", "Amgad", "Hein"];
     const firebaseConfig = {
       apiKey: "AIzaSyCGTsZncPetIHiC_MnoNiflaen-LSaVsuc",
