@@ -11,50 +11,33 @@
       padding: 0;
       background-color: #f4f4f4;
       color: #333;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
     }
     header {
       background-color: #4CAF50;
       color: white;
-      padding: 20px 0;
+      padding: 20px;
+      position: relative;
       text-align: center;
     }
-    main {
+    .instructor-header {
+      position: absolute;
+      top: 20px;
+      right: 20px;
       display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .instructor-photo {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid white;
+    }
+    main {
       max-width: 1200px;
       margin: auto;
       padding: 20px;
-      gap: 20px;
-      flex: 1;
-    }
-    aside.instructor-profile {
-      flex: 0 0 250px;
-      background: #fff;
-      padding: 15px;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      text-align: left;
-    }
-    .instructor-profile img {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 10px;
-    }
-    .instructor-profile h3 {
-      margin: 10px 0 5px;
-      font-size: 1.2em;
-    }
-    .instructor-profile p {
-      font-size: 0.9em;
-      color: #555;
-      margin: 5px 0;
-    }
-    .content-area {
-      flex: 1;
     }
     section {
       margin-bottom: 40px;
@@ -105,143 +88,130 @@
       padding: 10px;
       text-align: center;
     }
-    .active {
-      color: green;
-      font-weight: bold;
-    }
-    .inactive {
-      color: red;
-    }
     footer {
       text-align: center;
       padding: 20px;
       background-color: #ddd;
     }
     @media (max-width: 768px) {
-      main {
-        flex-direction: column;
-      }
-      aside.instructor-profile {
-        flex: none;
-        width: 100%;
+      .instructor-header {
+        position: static;
+        justify-content: center;
+        margin-top: 10px;
       }
     }
   </style>
-    <!-- Firebase SDKs -->
+  <!-- Firebase SDKs -->
   <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
 </head>
 <body>
   <header>
     <h1>Asahi Laboratory - NLP Seminar</h1>
+    <div class="instructor-header">
+      <img src="hein_photo.jpg" alt="Instructor Photo" class="instructor-photo">
+      <div>
+        <strong>Hein Htet</strong><br>
+        Assistant Professor
+      </div>
+    </div>
   </header>
   <main>
-    <aside class="instructor-profile">
-      <img src="instructor_photo.jpg" alt="Instructor Photo">
-      <h3>Hein Htet</h3>
-      <p>Assistant Professor<br>Asahi Laboratory, Nagoya University</p>
-      <p><strong>Email:</strong><br>heinhtet@nagoya-u.ac.jp</p>
-      <p><strong>Message:</strong><br>Let's explore the world of NLP and LLMs together!</p>
-    </aside>
+    <section>
+      <h2>About the Seminar</h2>
+      <p>This hands-on seminar, organized by the Asahi Laboratory at Nagoya University, introduces students to the fundamentals and applications of Natural Language Processing (NLP) using Large Language Models (LLMs). Participants will engage with interactive notebooks and real-world datasets to explore various NLP tasks.</p>
+    </section>
 
-    <div class="content-area">
-      <section>
-        <h2>About the Seminar</h2>
-        <p>This hands-on seminar, organized by the Asahi Laboratory at Nagoya University, introduces students to the fundamentals and applications of Natural Language Processing (NLP) using Large Language Models (LLMs). Participants will engage with interactive notebooks and real-world datasets to explore various NLP tasks.</p>
-      </section>
-
-      <section>
-        <h2>Topics Covered</h2>
-        <div class="card-container">
-          <div class="card">
-            <h3>Part 1: Introduction to NLP</h3>
-            <a href="#" class="btn">Course Notebook</a>
-          </div>
-          <div class="card">
-            <h3>Part 2: Tokenization & Embeddings</h3>
-            <a href="#" class="btn">Course Notebook</a>
-          </div>
-          <div class="card">
-            <h3>Part 3: Fine-Tuning LLMs</h3>
-            <a href="#" class="btn">Course Notebook</a>
-          </div>
-          <div class="card">
-            <h3>Part 4: Retrieval-Augmented Generation (RAG)</h3>
-            <a href="#" class="btn">Course Notebook</a>
-          </div>
-          <div class="card">
-            <h3>Part 5: Knowledge Graph + LLM</h3>
-            <a href="#" class="btn">Course Notebook</a>
-          </div>
+    <section>
+      <h2>Topics Covered</h2>
+      <div class="card-container">
+        <div class="card">
+          <h3>Part 1: Introduction to NLP</h3>
+          <a href="https://colab.research.google.com/github/upc-hub/upc-hub.github.io/blob/main/nlp_seminar/part1.ipynb" target="_blank" class="btn">Course Notebook</a>
         </div>
-      </section>
+        <div class="card">
+          <h3>Part 2: Tokenization & Embeddings</h3>
+          <a href="https://colab.research.google.com/github/upc-hub/upc-hub.github.io/blob/main/nlp_seminar/part2.ipynb" target="_blank" class="btn">Course Notebook</a>
+        </div>
+        <div class="card">
+          <h3>Part 3: Fine-Tuning LLMs</h3>
+          <a href="https://colab.research.google.com/github/upc-hub/upc-hub.github.io/blob/main/nlp_seminar/part3.ipynb" target="_blank" class="btn">Course Notebook</a>
+        </div>
+        <div class="card">
+          <h3>Part 4: Retrieval-Augmented Generation (RAG)</h3>
+          <a href="https://colab.research.google.com/github/upc-hub/upc-hub.github.io/blob/main/nlp_seminar/part4.ipynb" target="_blank" class="btn">Course Notebook</a>
+        </div>
+        <div class="card">
+          <h3>Part 5: Knowledge Graph + LLM</h3>
+          <a href="https://colab.research.google.com/github/upc-hub/upc-hub.github.io/blob/main/nlp_seminar/part5.ipynb" target="_blank" class="btn">Course Notebook</a>
+        </div>
+      </div>
+    </section>
 
-      <section>
-        <h2>Attendance</h2>
-        <table>
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Status</th>
-              <th>Last Visited</th>
-              <th>Access Link</th>
-            </tr>
-          </thead>
-          <tbody id="studentTable">
-            <!-- Dynamically Loaded -->
-          </tbody>
-        </table>
-      </section>
-    </div>
+    <section>
+      <h2>Attendance</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Status</th>
+            <th>Last Visited</th>
+            <th>Access Link</th>
+          </tr>
+        </thead>
+        <tbody id="studentTable">
+          <!-- Students will be dynamically loaded here -->
+        </tbody>
+      </table>
+    </section>
   </main>
 
   <footer>
     <p>&copy; 2025 Asahi Laboratory, Nagoya University</p>
   </footer>
 
-<script>
-  const students = ["Sato", "Horita", "Genozono", "Yoshimochi", "Shibusawa", "Hirano", "Lynn", "Soe", "Kimura", "Asahi", "Alex", "Amgad", "Hein"];
-  const firebaseConfig = {
-    apiKey: "AIzaSyCGTsZncPetIHiC_MnoNiflaen-LSaVsuc",
-    authDomain: "nlp-seminar-c8c63.firebaseapp.com",
-    projectId: "nlp-seminar-c8c63",
-    storageBucket: "nlp-seminar-c8c63.firebasestorage.app",
-    messagingSenderId: "348634037467",
-    appId: "1:348634037467:web:659d7eb753f1e045a7a0fe"
-  };
-  firebase.initializeApp(firebaseConfig);
-  const db = firebase.firestore();
+  <script>
+    const students = ["Sato", "Horita", "Genozono", "Yoshimochi", "Shibusawa", "Hirano", "Lynn", "Soe", "Kimura", "Asahi", "Alex", "Amgad", "Hein"];
+    const firebaseConfig = {
+      apiKey: "AIzaSyCGTsZncPetIHiC_MnoNiflaen-LSaVsuc",
+      authDomain: "nlp-seminar-c8c63.firebaseapp.com",
+      projectId: "nlp-seminar-c8c63",
+      storageBucket: "nlp-seminar-c8c63.firebasestorage.app",
+      messagingSenderId: "348634037467",
+      appId: "1:348634037467:web:659d7eb753f1e045a7a0fe"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
 
-  function loadTableRealtime() {
-    const table = document.getElementById("studentTable");
-    table.innerHTML = "";
+    function loadTableRealtime() {
+      const table = document.getElementById("studentTable");
+      table.innerHTML = "";
 
-    db.collection("student_status").onSnapshot(snapshot => {
-      const statusData = [];
+      db.collection("student_status").onSnapshot(snapshot => {
+        const statusData = [];
 
-      students.forEach(name => {
-        const doc = snapshot.docs.find(d => d.id === name);
-        const data = doc ? doc.data() : null;
-        const status = data && data.status ? data.status : "inactive";
-        const lastVisited = data && data.lastVisited ? new Date(data.lastVisited).toLocaleString() : "-";
-        statusData.push({ name, status, lastVisited });
+        students.forEach(name => {
+          const doc = snapshot.docs.find(d => d.id === name);
+          const data = doc ? doc.data() : null;
+          const status = data && data.status ? data.status : "inactive";
+          const lastVisited = data && data.lastVisited ? new Date(data.lastVisited).toLocaleString() : "-";
+          statusData.push({ name, status, lastVisited });
+        });
+
+        statusData.sort((a, b) => (a.status === "active" ? -1 : 1));
+
+        table.innerHTML = statusData.map(({ name, status, lastVisited }) => {
+          const statusIcon = status === "active" ? "🟢" : "🔴";
+          return `<tr>
+            <td>${name}</td>
+            <td style="font-size: 1.5em;">${statusIcon}</td>
+            <td>${lastVisited}</td>
+            <td><a href="./${name}/" class="btn">Visit Page</a></td>
+          </tr>`;
+        }).join("");
       });
-
-      statusData.sort((a, b) => (a.status === "active" ? -1 : 1));
-
-      table.innerHTML = statusData.map(({ name, status, lastVisited }) => {
-        const statusIcon = status === "active" ? "🟢" : "🔴";
-        return `<tr>
-          <td>${name}</td>
-          <td style="font-size: 1.5em;">${statusIcon}</td>
-          <td>${lastVisited}</td>
-          <td><a href="./${name}/" class="btn">Visit Page</a></td>
-        </tr>`;
-      }).join("");
-    });
-  }
-  loadTableRealtime();
-</script>
-
+    }
+    loadTableRealtime();
+  </script>
 </body>
 </html>
