@@ -252,78 +252,87 @@
   </footer>
 
   <script>
-    function setLanguage(lang) {
-      document.getElementById('btn-en').classList.remove('active');
-      document.getElementById('btn-jp').classList.remove('active');
-      document.getElementById('btn-' + lang).classList.add('active');
-      const researchMapLink = document.getElementById('researchmap-link');
+      let currentLanguage = 'en'; // Track current language
 
-      if (lang === 'jp') {
-        document.getElementById('seminar-title').innerText = '朝日研究室 - NLPセミナー';
-        document.getElementById('about-title').innerText = 'セミナーについて';
-        document.getElementById('about-content').innerText = 'この実践的なセミナーでは、名古屋大学の朝日研究室が主催し、大規模言語モデル（LLM）を用いた自然言語処理（NLP）の基礎と応用を紹介します。';
-        document.getElementById('topics-title').innerText = 'カバーされるトピック';
-        document.getElementById('attendance-title').innerText = '出席者リスト';
-        document.getElementById('header-name').innerText = '名前';
-        document.getElementById('header-status').innerText = '状態';
-        document.getElementById('header-last-visited').innerText = '最終訪問';
-        document.getElementById('header-access-link').innerText = 'リンク';
-        researchMapLink.href = "https://profs.provost.nagoya-u.ac.jp/html/100013690_ja.html";
-      } else {
-        document.getElementById('seminar-title').innerText = 'Asahi Laboratory - NLP Seminar';
-        document.getElementById('about-title').innerText = 'About the Seminar';
-        document.getElementById('about-content').innerText = 'This hands-on seminar, organized by the Asahi Laboratory at Nagoya University, introduces students to the fundamentals and applications of Natural Language Processing (NLP) using Large Language Models (LLMs).';
-        document.getElementById('topics-title').innerText = 'Topics Covered';
-        document.getElementById('attendance-title').innerText = 'Attendance';
-        document.getElementById('header-name').innerText = 'Name';
-        document.getElementById('header-status').innerText = 'Status';
-        document.getElementById('header-last-visited').innerText = 'Last Visited';
-        document.getElementById('header-access-link').innerText = 'Access Link';
-        researchMapLink.href = "https://profs.provost.nagoya-u.ac.jp/html/100013690_en.html";
+      function setLanguage(lang) {
+          currentLanguage = lang; // Update the language globally
+          document.getElementById('btn-en').classList.remove('active');
+          document.getElementById('btn-jp').classList.remove('active');
+          document.getElementById('btn-' + lang).classList.add('active');
+
+          const researchMapLink = document.getElementById('researchmap-link');
+
+          if (lang === 'jp') {
+              document.getElementById('seminar-title').innerText = '朝日研究室 - NLPセミナー';
+              document.getElementById('about-title').innerText = 'セミナーについて';
+              document.getElementById('about-content').innerText = 'この実践的なセミナーでは、名古屋大学の朝日研究室が主催し、大規模言語モデル（LLM）を用いた自然言語処理（NLP）の基礎と応用を紹介します。';
+              document.getElementById('topics-title').innerText = 'カバーされるトピック';
+              document.getElementById('attendance-title').innerText = '出席者リスト';
+              document.getElementById('header-name').innerText = '名前';
+              document.getElementById('header-status').innerText = '状態';
+              document.getElementById('header-last-visited').innerText = '最終訪問';
+              document.getElementById('header-access-link').innerText = 'リンク';
+              researchMapLink.href = "https://profs.provost.nagoya-u.ac.jp/html/100013690_ja.html";
+          } else {
+              document.getElementById('seminar-title').innerText = 'Asahi Laboratory - NLP Seminar';
+              document.getElementById('about-title').innerText = 'About the Seminar';
+              document.getElementById('about-content').innerText = 'This hands-on seminar, organized by the Asahi Laboratory at Nagoya University, introduces students to the fundamentals and applications of Natural Language Processing (NLP) using Large Language Models (LLMs).';
+              document.getElementById('topics-title').innerText = 'Topics Covered';
+              document.getElementById('attendance-title').innerText = 'Attendance';
+              document.getElementById('header-name').innerText = 'Name';
+              document.getElementById('header-status').innerText = 'Status';
+              document.getElementById('header-last-visited').innerText = 'Last Visited';
+              document.getElementById('header-access-link').innerText = 'Access Link';
+              researchMapLink.href = "https://profs.provost.nagoya-u.ac.jp/html/100013690_en.html";
+          }
+
+          loadTableRealtime(); // Refresh table labels
       }
-    }
 
-    const students = ["Sato", "Horita", "Genozono", "Yoshimochi", "Shibusawa", "Hirano", "Lynn", "Soe", "Kimura", "Asahi", "Alex", "Amgad", "Hein"];
-    const firebaseConfig = {
-      apiKey: "AIzaSyCGTsZncPetIHiC_MnoNiflaen-LSaVsuc",
-      authDomain: "nlp-seminar-c8c63.firebaseapp.com",
-      projectId: "nlp-seminar-c8c63",
-      storageBucket: "nlp-seminar-c8c63.firebasestorage.app",
-      messagingSenderId: "348634037467",
-      appId: "1:348634037467:web:659d7eb753f1e045a7a0fe"
-    };
-    firebase.initializeApp(firebaseConfig);
-    const db = firebase.firestore();
+      const students = ["Sato", "Horita", "Genozono", "Yoshimochi", "Shibusawa", "Hirano", "Lynn", "Soe", "Kimura", "Asahi", "Alex", "Amgad", "Hein"];
+      const firebaseConfig = {
+          apiKey: "AIzaSyCGTsZncPetIHiC_MnoNiflaen-LSaVsuc",
+          authDomain: "nlp-seminar-c8c63.firebaseapp.com",
+          projectId: "nlp-seminar-c8c63",
+          storageBucket: "nlp-seminar-c8c63.firebasestorage.app",
+          messagingSenderId: "348634037467",
+          appId: "1:348634037467:web:659d7eb753f1e045a7a0fe"
+      };
+      firebase.initializeApp(firebaseConfig);
+      const db = firebase.firestore();
 
-    function loadTableRealtime() {
-      const table = document.getElementById("studentTable");
-      table.innerHTML = "";
+      function loadTableRealtime() {
+          const table = document.getElementById("studentTable");
+          table.innerHTML = "";
 
-      db.collection("student_status").onSnapshot(snapshot => {
-        const statusData = [];
+          db.collection("student_status").onSnapshot(snapshot => {
+              const statusData = [];
 
-        students.forEach(name => {
-          const doc = snapshot.docs.find(d => d.id === name);
-          const data = doc ? doc.data() : null;
-          const status = data && data.status ? data.status : "inactive";
-          const lastVisited = data && data.lastVisited ? new Date(data.lastVisited).toLocaleString() : "-";
-          statusData.push({ name, status, lastVisited });
-        });
+              students.forEach(name => {
+                  const doc = snapshot.docs.find(d => d.id === name);
+                  const data = doc ? doc.data() : null;
+                  const status = data && data.status ? data.status : "inactive";
+                  const lastVisited = data && data.lastVisited ? new Date(data.lastVisited).toLocaleString() : "-";
+                  statusData.push({ name, status, lastVisited });
+              });
 
-        statusData.sort((a, b) => (a.status === "active" ? -1 : 1));
+              statusData.sort((a, b) => (a.status === "active" ? -1 : 1));
 
-        table.innerHTML = statusData.map(({ name, status, lastVisited }) => {
-          const statusIcon = status === "active" ? "🟢" : "🔴";
-          return `<tr>
-            <td>${name}</td>
-            <td style="font-size: 1.5em;">${statusIcon}</td>
-            <td>${lastVisited}</td>
-            <td><a href="./${name}/" class="btn">Visit Page</a></td>
-          </tr>`;
-        }).join("");
-      });
-    }
-    loadTableRealtime();
+              const visitLabel = currentLanguage === 'jp' ? 'ページを見る' : 'Visit Page';
+
+              table.innerHTML = statusData.map(({ name, status, lastVisited }) => {
+                  const statusIcon = status === "active" ? "🟢" : "🔴";
+                  return `<tr>
+                      <td>${name}</td>
+                      <td style="font-size: 1.5em;">${statusIcon}</td>
+                      <td>${lastVisited}</td>
+                      <td><a href="./${name}/" class="btn">${visitLabel}</a></td>
+                  </tr>`;
+              }).join("");
+          });
+      }
+
+      loadTableRealtime();
   </script>
 </body>
 </html>
