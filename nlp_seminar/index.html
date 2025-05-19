@@ -234,10 +234,10 @@
       <table>
         <thead>
           <tr>
-            <th>Name</th>
-            <th>Status</th>
-            <th>Last Visited</th>
-            <th>Access Link</th>
+            <th id="header-name">Name</th>
+            <th id="header-status">Status</th>
+            <th id="header-last-visited">Last Visited</th>
+            <th id="header-access-link">Access Link</th>
           </tr>
         </thead>
         <tbody id="studentTable">
@@ -264,6 +264,10 @@
         document.getElementById('about-content').innerText = 'この実践的なセミナーでは、名古屋大学の朝日研究室が主催し、大規模言語モデル（LLM）を用いた自然言語処理（NLP）の基礎と応用を紹介します。';
         document.getElementById('topics-title').innerText = 'カバーされるトピック';
         document.getElementById('attendance-title').innerText = '出席者リスト';
+        document.getElementById('header-name').innerText = '名前';
+        document.getElementById('header-status').innerText = '状態';
+        document.getElementById('header-last-visited').innerText = '最終訪問';
+        document.getElementById('header-access-link').innerText = 'リンク';
         researchMapLink.href = "https://profs.provost.nagoya-u.ac.jp/html/100013690_ja.html";
       } else {
         document.getElementById('seminar-title').innerText = 'Asahi Laboratory - NLP Seminar';
@@ -271,6 +275,10 @@
         document.getElementById('about-content').innerText = 'This hands-on seminar, organized by the Asahi Laboratory at Nagoya University, introduces students to the fundamentals and applications of Natural Language Processing (NLP) using Large Language Models (LLMs).';
         document.getElementById('topics-title').innerText = 'Topics Covered';
         document.getElementById('attendance-title').innerText = 'Attendance';
+        document.getElementById('header-name').innerText = 'Name';
+        document.getElementById('header-status').innerText = 'Status';
+        document.getElementById('header-last-visited').innerText = 'Last Visited';
+        document.getElementById('header-access-link').innerText = 'Access Link';
         researchMapLink.href = "https://profs.provost.nagoya-u.ac.jp/html/100013690_en.html";
       }
     }
