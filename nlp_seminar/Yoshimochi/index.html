@@ -191,6 +191,12 @@
                 document.getElementById("content").style.display = "block";
                 localStorage.setItem(`authenticated_${studentName}`, "true");
                 localStorage.setItem(`student_${studentName}`, "active");
+                // ✅ Update Firestore status *after successful login*
+                db.collection("student_status").doc(studentName).set({
+                    status: "active",
+                    lastVisited: new Date().toISOString()
+                }, { merge: true });
+
             } else {
                 alert("Incorrect password. Please try again.");
             }
@@ -206,10 +212,10 @@
             }
         };
 
-        db.collection("student_status").doc(studentName).set({
-            status: "active",
-            lastVisited: new Date().toISOString()
-        }, { merge: true });
+        //db.collection("student_status").doc(studentName).set({
+        //    status: "active",
+        //    lastVisited: new Date().toISOString()
+        //}, { merge: true });
 
         // Mark as inactive when the page is closed or refreshed
         window.addEventListener("beforeunload", function () {
