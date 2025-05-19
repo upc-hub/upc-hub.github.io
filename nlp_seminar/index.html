@@ -145,6 +145,27 @@
       transform: scale(1.2);
       color: #FFD700; /* Gold on hover for nice effect */
     }
+
+    .language-toggle {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+    .language-toggle button {
+      background-color: white;
+      color: #4CAF50;
+      border: none;
+      padding: 8px 12px;
+      margin-left: 5px;
+      cursor: pointer;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+    .language-toggle button.active {
+      background-color: #FFD700;
+      color: #333;
+    }
+
   </style>
   <!-- Firebase SDKs -->
   <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
@@ -154,6 +175,10 @@
 <body>
   <header>
     <h1>Asahi Laboratory - NLP Seminar</h1>
+    <div class="language-toggle">
+      <button onclick="setLanguage('en')" id="btn-en" class="active">EN</button>
+      <button onclick="setLanguage('jp')" id="btn-jp">JP</button>
+    </div>
     <div class="instructor-info">
       <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/79504426/445043513-53fb70d4-10c1-4689-9a51-11e2477db7ef.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20250519%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250519T083020Z&X-Amz-Expires=300&X-Amz-Signature=d4e5194756d1ee7915281ba49fbc6edfc84e7863447339f8631b4d6914ba468e&X-Amz-SignedHeaders=host" 
           alt="Instructor Photo" 
@@ -179,7 +204,7 @@
     </section>
 
     <section>
-      <h2>Topics Covered</h2>
+      <h2 id="topics-title">Topics Covered</h2>
       <div class="card-container">
         <div class="card">
           <h3>Part 1: Introduction to NLP</h3>
@@ -205,7 +230,7 @@
     </section>
 
     <section>
-      <h2>Attendance</h2>
+      <h2 id="attendance-title">Attendance</h2>
       <table>
         <thead>
           <tr>
@@ -227,6 +252,26 @@
   </footer>
 
   <script>
+    function setLanguage(lang) {
+      document.getElementById('btn-en').classList.remove('active');
+      document.getElementById('btn-jp').classList.remove('active');
+      document.getElementById('btn-' + lang).classList.add('active');
+
+      if (lang === 'jp') {
+        document.getElementById('seminar-title').innerText = '朝日研究室 - NLPセミナー';
+        document.getElementById('about-title').innerText = 'セミナーについて';
+        document.getElementById('about-content').innerText = 'この実践的なセミナーでは、名古屋大学の朝日研究室が主催し、大規模言語モデル（LLM）を用いた自然言語処理（NLP）の基礎と応用を紹介します。';
+        document.getElementById('topics-title').innerText = 'カバーされるトピック';
+        document.getElementById('attendance-title').innerText = '出席者リスト';
+      } else {
+        document.getElementById('seminar-title').innerText = 'Asahi Laboratory - NLP Seminar';
+        document.getElementById('about-title').innerText = 'About the Seminar';
+        document.getElementById('about-content').innerText = 'This hands-on seminar, organized by the Asahi Laboratory at Nagoya University, introduces students to the fundamentals and applications of Natural Language Processing (NLP) using Large Language Models (LLMs).';
+        document.getElementById('topics-title').innerText = 'Topics Covered';
+        document.getElementById('attendance-title').innerText = 'Attendance';
+      }
+    }
+    
     const students = ["Sato", "Horita", "Genozono", "Yoshimochi", "Shibusawa", "Hirano", "Lynn", "Soe", "Kimura", "Asahi", "Alex", "Amgad", "Hein"];
     const firebaseConfig = {
       apiKey: "AIzaSyCGTsZncPetIHiC_MnoNiflaen-LSaVsuc",
