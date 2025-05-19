@@ -12,28 +12,21 @@
       background-color: #f4f4f4;
       color: #333;
     }
-
     header {
       background-color: #4CAF50;
       color: white;
-      padding: 20px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
+      padding: 20px;
+      position: relative;
+      text-align: center;
     }
-
-    header h1 {
-      margin: 0;
-      font-size: 2em;
-    }
-
     .instructor-header {
+      position: absolute;
+      top: 20px;
+      right: 20px;
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
     }
-
     .instructor-photo {
       width: 50px;
       height: 50px;
@@ -41,22 +34,18 @@
       object-fit: cover;
       border: 2px solid white;
     }
-
     main {
       max-width: 1200px;
       margin: auto;
       padding: 20px;
     }
-
     section {
       margin-bottom: 40px;
     }
-
     h2 {
       border-bottom: 2px solid #4CAF50;
       padding-bottom: 10px;
     }
-
     .card-container {
       display: flex;
       flex-wrap: wrap;
@@ -64,7 +53,6 @@
       justify-content: center;
       margin-top: 20px;
     }
-
     .card {
       background: #fff;
       border-radius: 10px;
@@ -72,14 +60,11 @@
       text-align: center;
       padding: 20px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: transform 0.3s ease;
     }
-
     .card:hover {
       transform: translateY(-8px);
-      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
     }
-
     .btn {
       display: inline-block;
       margin-top: 10px;
@@ -90,39 +75,29 @@
       border-radius: 6px;
       transition: background-color 0.3s ease;
     }
-
     .btn:hover {
       background-color: #45a049;
     }
-
     table {
       width: 100%;
       border-collapse: collapse;
       margin-top: 20px;
     }
-
     th, td {
       border: 1px solid #ccc;
       padding: 10px;
       text-align: center;
     }
-
     footer {
       text-align: center;
       padding: 20px;
       background-color: #ddd;
-      margin-top: 40px;
     }
-
     @media (max-width: 768px) {
-      header {
-        flex-direction: column;
-        text-align: center;
-      }
-
       .instructor-header {
+        position: static;
         justify-content: center;
-        margin-top: 15px;
+        margin-top: 10px;
       }
     }
   </style>
@@ -132,14 +107,12 @@
 </head>
 <body>
   <header>
-    <div class="header-container">
-      <h1>Asahi Laboratory - NLP Seminar</h1>
-      <div class="instructor-info">
-        <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/79504426/445043513-53fb70d4-10c1-4689-9a51-11e2477db7ef.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20250519%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250519T083020Z&X-Amz-Expires=300&X-Amz-Signature=d4e5194756d1ee7915281ba49fbc6edfc84e7863447339f8631b4d6914ba468e&X-Amz-SignedHeaders=host" alt="Instructor Photo" class="instructor-photo">
-        <div>
-          <strong>Hein Htet</strong><br>
-          Assistant Professor
-        </div>
+    <h1>Asahi Laboratory - NLP Seminar</h1>
+    <div class="instructor-header">
+      <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/79504426/445043513-53fb70d4-10c1-4689-9a51-11e2477db7ef.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20250519%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20250519T083020Z&X-Amz-Expires=300&X-Amz-Signature=d4e5194756d1ee7915281ba49fbc6edfc84e7863447339f8631b4d6914ba468e&X-Amz-SignedHeaders=host" alt="Instructor Photo" class="instructor-photo">
+      <div>
+        <strong>Hein Htet</strong><br>
+        Assistant Professor
       </div>
     </div>
   </header>
