@@ -256,6 +256,7 @@
       document.getElementById('btn-en').classList.remove('active');
       document.getElementById('btn-jp').classList.remove('active');
       document.getElementById('btn-' + lang).classList.add('active');
+      const researchMapLink = document.getElementById('researchmap-link');
 
       if (lang === 'jp') {
         document.getElementById('seminar-title').innerText = '朝日研究室 - NLPセミナー';
