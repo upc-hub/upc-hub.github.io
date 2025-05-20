@@ -231,7 +231,7 @@
     </section>
 
     <section>
-      <h2 id="attendance-title">Attendance</h2>
+      <h2 id="attendance-title">Registered Participants</h2>
       <table>
         <thead>
           <tr>
@@ -277,7 +277,7 @@
               for (let i = 1; i <= 5; i++) {
                   document.getElementById(`btn-part${i}`).innerText = 'コースノートブック';
               }
-              document.getElementById('attendance-title').innerText = '出席者リスト';
+              document.getElementById('attendance-title').innerText = '登録済み参加者';
               document.getElementById('header-name').innerText = '名前';
               document.getElementById('header-status').innerText = '状態';
               document.getElementById('header-last-visited').innerText = '最終訪問';
@@ -360,7 +360,7 @@
 
                 return `<tr>
                     <td>${displayName}</td>
-                    <td style="font-size: 1.5em;">${statusIcon}</td>
+                    <td style="font-size: 0.5em;">${statusIcon}</td>
                     <td>${lastVisited}</td>
                     <td><a href="./${username}/" class="btn">${visitLabel}</a></td>
                 </tr>`;
