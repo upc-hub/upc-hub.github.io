@@ -110,6 +110,27 @@
                 width: 300px;
             }
         }
+
+        .language-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+        .language-toggle button {
+            background-color: white;
+            color: #4CAF50;
+            border: none;
+            padding: 8px 12px;
+            margin-left: 5px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .language-toggle button.active {
+            background-color: #FFD700;
+            color: #333;
+        }
+
     </style>
     <!-- Firebase SDKs -->
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
@@ -143,35 +164,39 @@
 
     <header>
         <h1>Welcome, Sato!</h1>
+        <div class="language-toggle">
+            <button onclick="setLanguage('en')" id="btn-en" class="active">EN</button>
+            <button onclick="setLanguage('jp')" id="btn-jp">JP</button>
+        </div>
     </header>
 
     <section id="content" style="display:none;">
-        <h2>NLP-Seminar Topics</h2>
+        <h2 id="topics-title">NLP-Seminar Topics</h2>
         <div class="card-container">
             <div class="card">
-                <h3>Part 1: Introduction to NLP</h3>
-                <a href="https://colab.research.google.com/github/upc-hub/upc-hub.github.io/blob/main/nlp_seminar/part1.ipynb" target="_blank" class="btn btn-course">📖 Course Notebook</a>
-                <a href="https://colab.research.google.com/github/upc-hub/upc-hub.github.io/blob/main/nlp_seminar/Sato/part1_test.ipynb" target="_blank" class="btn btn-testing">📝 Testing Notebook</a>
+                <h3 id="part1-title">Part 1: Introduction to NLP</h3>
+                <a id="btn-part1" href="https://colab.research.google.com/github/upc-hub/upc-hub.github.io/blob/main/nlp_seminar/part1.ipynb" target="_blank" class="btn btn-course">📖 Course Notebook</a>
+                <a id="btn-test-part1" href="https://colab.research.google.com/github/upc-hub/upc-hub.github.io/blob/main/nlp_seminar/Sato/part1_test.ipynb" target="_blank" class="btn btn-testing">📝 Testing Notebook</a>
             </div>
             <div class="card">
-                <h3>Part 2: Tokenization & Embeddings</h3>
-                <a href="https://colab.research.google.com/github/upc-hub/upc-hub.github.io/blob/main/nlp_seminar/part2.ipynb" target="_blank" class="btn btn-course">📖 Course Notebook</a>
-                <a href="https://colab.research.google.com/github/upc-hub/upc-hub.github.io/blob/main/nlp_seminar/Sato/part2_test.ipynb" target="_blank" class="btn btn-testing">📝 Testing Notebook</a>
+                <h3 id="part2-title">Part 2: Tokenization & Embeddings</h3>
+                <a id="btn-part2" href="https://colab.research.google.com/github/upc-hub/upc-hub.github.io/blob/main/nlp_seminar/part2.ipynb" target="_blank" class="btn btn-course">📖 Course Notebook</a>
+                <a id="btn-test-part2" href="https://colab.research.google.com/github/upc-hub/upc-hub.github.io/blob/main/nlp_seminar/Sato/part2_test.ipynb" target="_blank" class="btn btn-testing">📝 Testing Notebook</a>
             </div>
             <div class="card">
-                <h3>Part 3: Fine-Tuning LLMs</h3>
-                <a href="https://colab.research.google.com/github/upc-hub/upc-hub.github.io/blob/main/nlp_seminar/part3.ipynb" target="_blank" class="btn btn-course">📖 Course Notebook</a>
-                <a href="https://colab.research.google.com/github/upc-hub/upc-hub.github.io/blob/main/nlp_seminar/Sato/part3_test.ipynb" target="_blank" class="btn btn-testing">📝 Testing Notebook</a>
+                <h3 id="part3-title">Part 3: Fine-Tuning LLMs</h3>
+                <a id="btn-part3" href="https://colab.research.google.com/github/upc-hub/upc-hub.github.io/blob/main/nlp_seminar/part3.ipynb" target="_blank" class="btn btn-course">📖 Course Notebook</a>
+                <a id="btn-test-part3" href="https://colab.research.google.com/github/upc-hub/upc-hub.github.io/blob/main/nlp_seminar/Sato/part3_test.ipynb" target="_blank" class="btn btn-testing">📝 Testing Notebook</a>
             </div>
             <div class="card">
-                <h3>Part 4: Retrieval-Augmented Generation (RAG)</h3>
-                <a href="https://colab.research.google.com/github/upc-hub/upc-hub.github.io/blob/main/nlp_seminar/part4.ipynb" target="_blank" class="btn btn-course">📖 Course Notebook</a>
-                <a href="https://colab.research.google.com/github/upc-hub/upc-hub.github.io/blob/main/nlp_seminar/Sato/part4_test.ipynb" target="_blank" class="btn btn-testing">📝 Testing Notebook</a>
+                <h3 id="part4-title">Part 4: Retrieval-Augmented Generation (RAG)</h3>
+                <a id="btn-part4" href="https://colab.research.google.com/github/upc-hub/upc-hub.github.io/blob/main/nlp_seminar/part4.ipynb" target="_blank" class="btn btn-course">📖 Course Notebook</a>
+                <a id="btn-test-part4" href="https://colab.research.google.com/github/upc-hub/upc-hub.github.io/blob/main/nlp_seminar/Sato/part4_test.ipynb" target="_blank" class="btn btn-testing">📝 Testing Notebook</a>
             </div>
             <div class="card">
-                <h3>Part 5: Knowledge Graph + LLM</h3>
-                <a href="https://colab.research.google.com/github/upc-hub/upc-hub.github.io/blob/main/nlp_seminar/part5.ipynb" target="_blank" class="btn btn-course">📖 Course Notebook</a>
-                <a href="https://colab.research.google.com/github/upc-hub/upc-hub.github.io/blob/main/nlp_seminar/Sato/part5_test.ipynb" target="_blank" class="btn btn-testing">📝 Testing Notebook</a>
+                <h3 id="part5-title">Part 5: Knowledge Graph + LLM</h3>
+                <a id="btn-part5" href="https://colab.research.google.com/github/upc-hub/upc-hub.github.io/blob/main/nlp_seminar/part5.ipynb" target="_blank" class="btn btn-course">📖 Course Notebook</a>
+                <a id="btn-test-part5" href="https://colab.research.google.com/github/upc-hub/upc-hub.github.io/blob/main/nlp_seminar/Sato/part5_test.ipynb" target="_blank" class="btn btn-testing">📝 Testing Notebook</a>
             </div>
         </div>
     </section>
@@ -181,6 +206,36 @@
     </footer>
 
     <script>
+        function setLanguage(lang) {
+            document.getElementById('btn-en').classList.remove('active');
+            document.getElementById('btn-jp').classList.remove('active');
+            document.getElementById('btn-' + lang).classList.add('active');
+
+            if (lang === 'jp') {
+            document.getElementById('topics-title').innerText = 'セミナートピック';
+            document.getElementById('part1-title').innerText = 'パート1：NLP入門';
+            document.getElementById('part2-title').innerText = 'パート2：トークナイゼーションと埋め込み表現';
+            document.getElementById('part3-title').innerText = 'パート3：LLMのファインチューニング';
+            document.getElementById('part4-title').innerText = 'パート4：検索拡張生成（RAG）';
+            document.getElementById('part5-title').innerText = 'パート5：ナレッジグラフ + LLM';
+            for (let i = 1; i <= 5; i++) {
+                document.getElementById(`btn-part${i}`).innerText = '📖 コースノートブック';
+                document.getElementById(`btn-test-part${i}`).innerText = '📝 テストノートブック';
+            }
+            } else {
+            document.getElementById('topics-title').innerText = 'NLP-Seminar Topics';
+            document.getElementById('part1-title').innerText = 'Part 1: Introduction to NLP';
+            document.getElementById('part2-title').innerText = 'Part 2: Tokenization & Embeddings';
+            document.getElementById('part3-title').innerText = 'Part 3: Fine-Tuning LLMs';
+            document.getElementById('part4-title').innerText = 'Part 4: Retrieval-Augmented Generation (RAG)';
+            document.getElementById('part5-title').innerText = 'Part 5: Knowledge Graph + LLM';
+            for (let i = 1; i <= 5; i++) {
+                document.getElementById(`btn-part${i}`).innerText = '📖 Course Notebook';
+                document.getElementById(`btn-test-part${i}`).innerText = '📝 Testing Notebook';
+            }
+            }
+        }
+
         const studentName = "Sato";
         const password = "Sato123"; // Hardcoded password for Sato
 
