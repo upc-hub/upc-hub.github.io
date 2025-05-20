@@ -22,10 +22,6 @@
         h1 {
             margin: 0;
         }
-        h2 {
-            border-bottom: 2px solid #4CAF50;
-            padding-bottom: 10px;
-        }
         .card-container {
             display: flex;
             flex-wrap: wrap;
@@ -174,11 +170,6 @@
         </div>
     </header>
 
-    <section>
-      <h2 id="about-title">About the Seminar</h2>
-      <p id="about-content">This hands-on seminar, organized by the Asahi Laboratory at Nagoya University, introduces students to the fundamentals and applications of Natural Language Processing (NLP) using Large Language Models (LLMs).</p>
-    </section>
-
     <section id="content" style="display:none;">
         <h2 id="topics-title">NLP-Seminar Topics</h2>
         <div class="card-container">
@@ -221,8 +212,6 @@
             document.getElementById('btn-' + lang).classList.add('active');
 
             if (lang === 'jp') {
-            document.getElementById('about-title').innerText = 'セミナーについて';
-            document.getElementById('about-content').innerText = 'この実践的なセミナーでは、名古屋大学の旭研究室が主催し、大規模言語モデル（LLM）を用いた自然言語処理（NLP）の基礎と応用を紹介します。';
             document.getElementById('topics-title').innerText = 'セミナートピック';
             document.getElementById('part1-title').innerText = 'パート1：NLP入門';
             document.getElementById('part2-title').innerText = 'パート2：トークナイゼーションと埋め込み表現';
@@ -234,8 +223,6 @@
                 document.getElementById(`btn-test-part${i}`).innerText = '📝 テストノートブック';
             }
             } else {
-            document.getElementById('about-title').innerText = 'About the Seminar';
-            document.getElementById('about-content').innerText = 'This hands-on seminar, organized by the Asahi Laboratory at Nagoya University, introduces students to the fundamentals and applications of Natural Language Processing (NLP) using Large Language Models (LLMs).';
             document.getElementById('topics-title').innerText = 'NLP-Seminar Topics';
             document.getElementById('part1-title').innerText = 'Part 1: Introduction to NLP';
             document.getElementById('part2-title').innerText = 'Part 2: Tokenization & Embeddings';
