@@ -154,7 +154,7 @@
     </header>
 
     <div class="platform-toggle">
-        <h2>Select your preferred platform:</h2>
+        <h2 id="select-language">Select your preferred platform:</h2>
         <button onclick="setPlatform('colab')" id="btn-colab" class="active">Google Colab</button>
         <button onclick="setPlatform('jupyterhub')" id="btn-jupyterhub">JupyterHub</button>
     </div>
@@ -241,6 +241,7 @@
             document.getElementById('btn-' + lang).classList.add('active');
 
             if (lang === 'jp') {
+            document.getElementById('select-language').innerText = 'ご希望のプラットフォームを選択してください:';
             document.getElementById('topics-title').innerText = 'GoogleColab を使用した NLP セミナーのトピック';
             document.getElementById('part1-title').innerText = 'パート1：NLP入門';
             document.getElementById('part2-title').innerText = 'パート2：トークナイゼーションと埋め込み表現';
@@ -261,6 +262,7 @@
                 document.getElementById(`btn${i}-test-part${i}`).innerText = '📝 テストノートブック';
             }
             } else {
+            document.getElementById('select-language').innerText = 'Select your preferred platform:';
             document.getElementById('topics-title').innerText = 'NLP-Seminar Topics using GoogleColab';
             document.getElementById('part1-title').innerText = 'Part 1: Introduction to NLP';
             document.getElementById('part2-title').innerText = 'Part 2: Tokenization & Embeddings';
