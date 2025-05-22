@@ -116,7 +116,8 @@
             top: 20px;
             right: 20px;
         }
-        .language-toggle button {
+        .language-toggle button,
+        .platform-toggle button {
             background-color: white;
             color: #4CAF50;
             border: none;
@@ -126,9 +127,13 @@
             border-radius: 5px;
             font-weight: bold;
         }
-        .language-toggle button.active {
+        .language-toggle button.active,
+        .platform-toggle button.active {
             background-color: #FFD700;
             color: #333;
+        }
+        .platform-toggle {
+            margin-top: 10px;
         }
 
     </style>
@@ -169,6 +174,12 @@
             <button onclick="setLanguage('jp')" id="btn-jp">JP</button>
         </div>
     </header>
+
+    <div class="platform-toggle">
+        <p><strong>Select your preferred platform:</strong></p>
+        <button onclick="setPlatform('colab')" id="btn-colab" class="active">Google Colab</button>
+        <button onclick="setPlatform('jupyterhub')" id="btn-jupyterhub">JupyterHub</button>
+    </div>
 
     <section id="content" style="display:none;">
         <h2 id="topics-title">NLP-Seminar Topics using GoogleColab</h2>
