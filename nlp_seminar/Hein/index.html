@@ -176,66 +176,70 @@
     </header>
 
     <div class="platform-toggle">
-        <p><strong>Select your preferred platform:</strong></p>
+        <h2>Select your preferred platform:</h2>
         <button onclick="setPlatform('colab')" id="btn-colab" class="active">Google Colab</button>
         <button onclick="setPlatform('jupyterhub')" id="btn-jupyterhub">JupyterHub</button>
     </div>
 
     <section id="content" style="display:none;">
-        <h2 id="topics-title">NLP-Seminar Topics using GoogleColab</h2>
-        <div class="card-container">
-            <div class="card">
-                <h3 id="part1-title">Part 1: Introduction to NLP</h3>
-                <a id="btn-part1" href="https://colab.research.google.com/github/upc-hub/upc-hub.github.io/blob/main/nlp_seminar/part1.ipynb" target="_blank" class="btn btn-course">📖 Course Notebook</a>
-                <a id="btn-test-part1" href="https://colab.research.google.com/github/upc-hub/upc-hub.github.io/blob/main/nlp_seminar/Hein/part1_test.ipynb" target="_blank" class="btn btn-testing">📝 Testing Notebook</a>
-            </div>
-            <div class="card">
-                <h3 id="part2-title">Part 2: Tokenization & Embeddings</h3>
-                <a id="btn-part2" href="https://colab.research.google.com/github/upc-hub/upc-hub.github.io/blob/main/nlp_seminar/part2.ipynb" target="_blank" class="btn btn-course">📖 Course Notebook</a>
-                <a id="btn-test-part2" href="https://colab.research.google.com/github/upc-hub/upc-hub.github.io/blob/main/nlp_seminar/Hein/part2_test.ipynb" target="_blank" class="btn btn-testing">📝 Testing Notebook</a>
-            </div>
-            <div class="card">
-                <h3 id="part3-title">Part 3: Fine-Tuning LLMs</h3>
-                <a id="btn-part3" href="https://colab.research.google.com/github/upc-hub/upc-hub.github.io/blob/main/nlp_seminar/part3.ipynb" target="_blank" class="btn btn-course">📖 Course Notebook</a>
-                <a id="btn-test-part3" href="https://colab.research.google.com/github/upc-hub/upc-hub.github.io/blob/main/nlp_seminar/Hein/part3_test.ipynb" target="_blank" class="btn btn-testing">📝 Testing Notebook</a>
-            </div>
-            <div class="card">
-                <h3 id="part4-title">Part 4: Retrieval-Augmented Generation (RAG)</h3>
-                <a id="btn-part4" href="https://colab.research.google.com/github/upc-hub/upc-hub.github.io/blob/main/nlp_seminar/part4.ipynb" target="_blank" class="btn btn-course">📖 Course Notebook</a>
-                <a id="btn-test-part4" href="https://colab.research.google.com/github/upc-hub/upc-hub.github.io/blob/main/nlp_seminar/Hein/part4_test.ipynb" target="_blank" class="btn btn-testing">📝 Testing Notebook</a>
-            </div>
-            <div class="card">
-                <h3 id="part5-title">Part 5: Knowledge Graph + LLM</h3>
-                <a id="btn-part5" href="https://colab.research.google.com/github/upc-hub/upc-hub.github.io/blob/main/nlp_seminar/part5.ipynb" target="_blank" class="btn btn-course">📖 Course Notebook</a>
-                <a id="btn-test-part5" href="https://colab.research.google.com/github/upc-hub/upc-hub.github.io/blob/main/nlp_seminar/Hein/part5_test.ipynb" target="_blank" class="btn btn-testing">📝 Testing Notebook</a>
+        <div id="colab-section">
+            <h2 id="topics-title">NLP-Seminar Topics using GoogleColab</h2>
+            <div class="card-container">
+                <div class="card">
+                    <h3 id="part1-title">Part 1: Introduction to NLP</h3>
+                    <a id="btn-part1" href="https://colab.research.google.com/github/upc-hub/upc-hub.github.io/blob/main/nlp_seminar/part1.ipynb" target="_blank" class="btn btn-course">📖 Course Notebook</a>
+                    <a id="btn-test-part1" href="https://colab.research.google.com/github/upc-hub/upc-hub.github.io/blob/main/nlp_seminar/Hein/part1_test.ipynb" target="_blank" class="btn btn-testing">📝 Testing Notebook</a>
+                </div>
+                <div class="card">
+                    <h3 id="part2-title">Part 2: Tokenization & Embeddings</h3>
+                    <a id="btn-part2" href="https://colab.research.google.com/github/upc-hub/upc-hub.github.io/blob/main/nlp_seminar/part2.ipynb" target="_blank" class="btn btn-course">📖 Course Notebook</a>
+                    <a id="btn-test-part2" href="https://colab.research.google.com/github/upc-hub/upc-hub.github.io/blob/main/nlp_seminar/Hein/part2_test.ipynb" target="_blank" class="btn btn-testing">📝 Testing Notebook</a>
+                </div>
+                <div class="card">
+                    <h3 id="part3-title">Part 3: Fine-Tuning LLMs</h3>
+                    <a id="btn-part3" href="https://colab.research.google.com/github/upc-hub/upc-hub.github.io/blob/main/nlp_seminar/part3.ipynb" target="_blank" class="btn btn-course">📖 Course Notebook</a>
+                    <a id="btn-test-part3" href="https://colab.research.google.com/github/upc-hub/upc-hub.github.io/blob/main/nlp_seminar/Hein/part3_test.ipynb" target="_blank" class="btn btn-testing">📝 Testing Notebook</a>
+                </div>
+                <div class="card">
+                    <h3 id="part4-title">Part 4: Retrieval-Augmented Generation (RAG)</h3>
+                    <a id="btn-part4" href="https://colab.research.google.com/github/upc-hub/upc-hub.github.io/blob/main/nlp_seminar/part4.ipynb" target="_blank" class="btn btn-course">📖 Course Notebook</a>
+                    <a id="btn-test-part4" href="https://colab.research.google.com/github/upc-hub/upc-hub.github.io/blob/main/nlp_seminar/Hein/part4_test.ipynb" target="_blank" class="btn btn-testing">📝 Testing Notebook</a>
+                </div>
+                <div class="card">
+                    <h3 id="part5-title">Part 5: Knowledge Graph + LLM</h3>
+                    <a id="btn-part5" href="https://colab.research.google.com/github/upc-hub/upc-hub.github.io/blob/main/nlp_seminar/part5.ipynb" target="_blank" class="btn btn-course">📖 Course Notebook</a>
+                    <a id="btn-test-part5" href="https://colab.research.google.com/github/upc-hub/upc-hub.github.io/blob/main/nlp_seminar/Hein/part5_test.ipynb" target="_blank" class="btn btn-testing">📝 Testing Notebook</a>
+                </div>
             </div>
         </div>
-        <h2 id="topics-title1">NLP-Seminar Topics using JupyterHub</h2>
-        <div class="card-container">
-            <div class="card">
-                <h3 id="part1-title1">Part 1: Introduction to NLP</h3>
-                <a id="btn1-part1" href="http://mars:9000/user/hein/lab/tree/part1/part1.ipynb" target="_blank" class="btn btn-course">📖 Course Notebook</a>
-                <a id="btn1-test-part1" href="http://mars:9000/user/hein/lab/tree/part1/part1_test.ipynb" target="_blank" class="btn btn-testing">📝 Testing Notebook</a>
-            </div>
-            <div class="card">
-                <h3 id="part2-title2">Part 2: Tokenization & Embeddings</h3>
-                <a id="btn2-part2" href="http://mars:9000/user/hein/lab/tree/part2/part2.ipynb" target="_blank" class="btn btn-course">📖 Course Notebook</a>
-                <a id="btn2-test-part2" href="http://mars:9000/user/hein/lab/tree/part2/part2_test.ipynb" target="_blank" class="btn btn-testing">📝 Testing Notebook</a>
-            </div>
-            <div class="card">
-                <h3 id="part3-title3">Part 3: Fine-Tuning LLMs</h3>
-                <a id="btn3-part3" href="http://mars:9000/user/hein/lab/tree/part3/part3.ipynb" target="_blank" class="btn btn-course">📖 Course Notebook</a>
-                <a id="btn3-test-part3" href="http://mars:9000/user/hein/lab/tree/part3/part3_test.ipynb" target="_blank" class="btn btn-testing">📝 Testing Notebook</a>
-            </div>
-            <div class="card">
-                <h3 id="part4-title4">Part 4: Retrieval-Augmented Generation (RAG)</h3>
-                <a id="btn4-part4" href="http://mars:9000/user/hein/lab/tree/part4/part4.ipynb" target="_blank" class="btn btn-course">📖 Course Notebook</a>
-                <a id="btn4-test-part4" href="http://mars:9000/user/hein/lab/tree/part4/part4_test.ipynb" target="_blank" class="btn btn-testing">📝 Testing Notebook</a>
-            </div>
-            <div class="card">
-                <h3 id="part5-title5">Part 5: Knowledge Graph + LLM</h3>
-                <a id="btn5-part5" href="http://mars:9000/user/hein/lab/tree/part5/part5.ipynb" target="_blank" class="btn btn-course">📖 Course Notebook</a>
-                <a id="btn5-test-part5" href="http://mars:9000/user/hein/lab/tree/part5/part5_test.ipynb" target="_blank" class="btn btn-testing">📝 Testing Notebook</a>
+        <div id="jupyterhub-section" style="display:none;">
+            <h2 id="topics-title1">NLP-Seminar Topics using JupyterHub</h2>
+            <div class="card-container">
+                <div class="card">
+                    <h3 id="part1-title1">Part 1: Introduction to NLP</h3>
+                    <a id="btn1-part1" href="http://mars:9000/user/hein/lab/tree/part1/part1.ipynb" target="_blank" class="btn btn-course">📖 Course Notebook</a>
+                    <a id="btn1-test-part1" href="http://mars:9000/user/hein/lab/tree/part1/part1_test.ipynb" target="_blank" class="btn btn-testing">📝 Testing Notebook</a>
+                </div>
+                <div class="card">
+                    <h3 id="part2-title2">Part 2: Tokenization & Embeddings</h3>
+                    <a id="btn2-part2" href="http://mars:9000/user/hein/lab/tree/part2/part2.ipynb" target="_blank" class="btn btn-course">📖 Course Notebook</a>
+                    <a id="btn2-test-part2" href="http://mars:9000/user/hein/lab/tree/part2/part2_test.ipynb" target="_blank" class="btn btn-testing">📝 Testing Notebook</a>
+                </div>
+                <div class="card">
+                    <h3 id="part3-title3">Part 3: Fine-Tuning LLMs</h3>
+                    <a id="btn3-part3" href="http://mars:9000/user/hein/lab/tree/part3/part3.ipynb" target="_blank" class="btn btn-course">📖 Course Notebook</a>
+                    <a id="btn3-test-part3" href="http://mars:9000/user/hein/lab/tree/part3/part3_test.ipynb" target="_blank" class="btn btn-testing">📝 Testing Notebook</a>
+                </div>
+                <div class="card">
+                    <h3 id="part4-title4">Part 4: Retrieval-Augmented Generation (RAG)</h3>
+                    <a id="btn4-part4" href="http://mars:9000/user/hein/lab/tree/part4/part4.ipynb" target="_blank" class="btn btn-course">📖 Course Notebook</a>
+                    <a id="btn4-test-part4" href="http://mars:9000/user/hein/lab/tree/part4/part4_test.ipynb" target="_blank" class="btn btn-testing">📝 Testing Notebook</a>
+                </div>
+                <div class="card">
+                    <h3 id="part5-title5">Part 5: Knowledge Graph + LLM</h3>
+                    <a id="btn5-part5" href="http://mars:9000/user/hein/lab/tree/part5/part5.ipynb" target="_blank" class="btn btn-course">📖 Course Notebook</a>
+                    <a id="btn5-test-part5" href="http://mars:9000/user/hein/lab/tree/part5/part5_test.ipynb" target="_blank" class="btn btn-testing">📝 Testing Notebook</a>
+                </div>
             </div>
         </div>
     </section>
@@ -245,6 +249,14 @@
     </footer>
 
     <script>
+        function setPlatform(platform) {
+            document.getElementById('btn-colab').classList.remove('active');
+            document.getElementById('btn-jupyterhub').classList.remove('active');
+            document.getElementById(`btn-${platform}`).classList.add('active');
+            document.getElementById('colab-section').style.display = platform === 'colab' ? 'block' : 'none';
+            document.getElementById('jupyterhub-section').style.display = platform === 'jupyterhub' ? 'block' : 'none';
+            localStorage.setItem('selectedPlatform', platform);
+        }
         function setLanguage(lang) {
             document.getElementById('btn-en').classList.remove('active');
             document.getElementById('btn-jp').classList.remove('active');
