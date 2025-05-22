@@ -114,6 +114,30 @@
         .platform-toggle {
             margin-top: 10px;
         }
+        .platform-selector {
+            margin-top: 30px;
+        }
+        .platform-selector button {
+            font-size: 1.2em;
+            padding: 12px 24px;
+            margin: 10px;
+            border: none;
+            border-radius: 10px;
+            background-color: #ff9800;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+        .platform-selector button:hover {
+            background-color: #fb8c00;
+            transform: scale(1.05);
+        }
+        .platform-selector button.active {
+            background-color: #fdd835;
+            color: #333;
+        }
+
     </style>
     <!-- Firebase SDKs -->
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
@@ -153,7 +177,7 @@
         </div>
     </header>
 
-    <div class="platform-toggle">
+    <div class="platform-selector">
         <h2 id="select-language">Select your preferred platform:</h2>
         <button onclick="setPlatform('colab')" id="btn-colab" class="active">Google Colab</button>
         <button onclick="setPlatform('jupyterhub')" id="btn-jupyterhub">JupyterHub</button>
