@@ -18,6 +18,7 @@
             background-color: #4CAF50;
             color: white;
             padding: 20px 0;
+            position: relative;
         }
         h1 {
             margin: 0;
@@ -56,28 +57,16 @@
         .btn:hover {
             background-color: #45a049;
         }
-        .btn-course {
-            background-color: #4CAF50; /* Green */
-        }
-        
-        .btn-course:hover {
-            background-color: #45a049;
-        }
-        
-        .btn-testing {
-            background-color: #2196F3; /* Blue */
-        }
-        
-        .btn-testing:hover {
-            background-color: #1976D2;
-        }
+        .btn-course { background-color: #4CAF50; }
+        .btn-course:hover { background-color: #45a049; }
+        .btn-testing { background-color: #2196F3; }
+        .btn-testing:hover { background-color: #1976D2; }
         footer {
             text-align: center;
             padding: 20px;
             background-color: #ddd;
             margin-top: 40px;
         }
-        /* Password Modal Styles */
         #passwordModal {
             position: fixed;
             top: 0; left: 0;
@@ -99,18 +88,8 @@
             font-size: 1em;
             margin: 10px 0;
         }
-        @media (min-width: 600px) {
-            .card {
-                width: 45%;
-            }
-        }
-
-        @media (min-width: 900px) {
-            .card {
-                width: 300px;
-            }
-        }
-
+        @media (min-width: 600px) { .card { width: 45%; } }
+        @media (min-width: 900px) { .card { width: 300px; } }
         .language-toggle {
             position: absolute;
             top: 20px;
@@ -135,7 +114,6 @@
         .platform-toggle {
             margin-top: 10px;
         }
-
     </style>
     <!-- Firebase SDKs -->
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
