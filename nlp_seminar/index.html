@@ -94,6 +94,21 @@
       box-shadow: 0 8px 16px rgba(0,0,0,0.2);
     }
 
+    .card1 {
+      background: #fff;
+      border-radius: 10px;
+      width: 500px;
+      text-align: justify;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card1:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    }
+
     .btn {
       display: inline-block;
       margin-top: 10px;
@@ -233,11 +248,11 @@
     <section>
       <h2 id="environment-choice">Choosing Your Environment: Google Colab or JupyterHub</h2>
       <div class="card-container">
-        <div class="card">
+        <div class="card1">
           <h3 id="env1">GoogleColab</h3>
           <p>Recommended for students using personal laptops or Chromebooks. It requires a Google account and internet connection. No local installation is needed. This is ideal for lightweight, portable access to notebooks.</p>
         </div>
-        <div class="card">
+        <div class="card1">
           <h3 id="env2">JupyterHub</h3>
           <p>Recommended for students using lab PCs or desktops. You’ll be given a login account to access JupyterHub running on our internal server. This method allows stable access to preconfigured environments and shared resources.</p>
         </div>
